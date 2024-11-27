@@ -1,0 +1,90 @@
+/* 전체 기본 설정 */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* header 스타일 */
+.header {
+  background-color: #4a90e2;
+  color: #fff;
+  padding: 0.5em 1em;
+  text-align: center;
+  position: relative; /* 네비게이션 링크를 오른쪽에 배치하기 위해 relative 포지션 */
+}
+
+/* 네비게이션 바 스타일 */
+.navbar {
+  display: flex; /* 수평 정렬을 위해 flex 사용 */
+  justify-content: flex-end; /* 네비게이션을 오른쪽에 정렬 */
+  gap: 20px; /* 각 링크 사이에 간격 추가 */
+  margin-top: 10px;
+}
+
+.navbar a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 10px 15px;
+  transition: background-color 0.3s;
+}
+
+.navbar a:hover {
+  background-color: #3b7bbf; /* 호버 시 배경 색상 */
+}
+
+/* 예약 조회 섹션 중앙 배치 */
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh; /* 화면 중간 배치를 위해 */
+}
+
+.reservation-check {
+  text-align: center;
+  background-color: #f9f9f9;
+  padding: 2rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.reservation-check h2 {
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+}
+
+/* 폼 스타일 */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+form label {
+  font-weight: bold;
+  text-align: left;
+}
+
+form input {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+form button {
+  padding: 0.7rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+form button:hover {
+  background-color: #0056b3;
+}

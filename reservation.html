@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>예약 - 호텔 [호텔명]</title>
+    <link rel="stylesheet" href="reservation.css" />
+  </head>
+  <body>
+    <header class="header">
+      <h1><a href="main2.html">환영합니다! 호텔 [호텔명]</a></h1>
+      <p>여유롭고 편안한 휴식처</p>
+      <nav class="navbar">
+        <a href="#about">호텔 소개</a>
+        <a href="room3.html">객실 타입 검색</a>
+        <a href="reservation.html">예약</a>
+        <a href="ReservationInquiry.html">예약 조회</a>
+      </nav>
+    </header>
+
+    <section class="reservation">
+      <h2>객실 예약하기</h2>
+      <form>
+        <label for="room_type">객실 타입:</label>
+        <select id="room_type" name="room_type">
+          <option value="single">싱글룸</option>
+          <option value="double">더블룸</option>
+          <option value="suite">스위트룸</option>
+        </select>
+        <label for="checkin">체크인 날짜:</label>
+        <input type="date" id="checkin" name="checkin" />
+        <label for="checkout">체크아웃 날짜:</label>
+        <input type="date" id="checkout" name="checkout" />
+        <label for="name">예약자 이름:</label>
+        <input type="text" id="name" name="name" />
+        <label for="email">이메일:</label>
+        <input type="email" id="email" name="email" />
+        <button type="submit">예약하기</button>
+      </form>
+    </section>
+  </body>
+</html>

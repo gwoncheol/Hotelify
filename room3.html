@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>호텔 객실</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f8f9fa;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        width: 80%;
+        max-width: 1000px;
+        margin-top: 40px;
+      }
+
+      .card {
+        display: flex;
+        align-items: center;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+        padding: 16px;
+      }
+
+      .card img {
+        width: 200px; /* 이미지 크기 조정 */
+        height: 150px;
+        object-fit: cover;
+        border-radius: 8px;
+        margin-right: 20px; /* 이미지와 텍스트 간의 간격 */
+      }
+
+      .card-content {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+      }
+
+      .description {
+        font-size: 1.2rem;
+        color: #333;
+        flex-grow: 1; /* 객실 설명이 가능한 공간을 차지하도록 */
+      }
+
+      .price {
+        font-size: 1.4rem;
+        color: #007bff;
+        font-weight: bold;
+        text-align: right; /* 가격 오른쪽 정렬 */
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 헤더 -->
+    <header class="header">
+      <h1><a href="main2.html">환영합니다! 호텔 [호텔명]</a></h1>
+      <p>여유롭고 편안한 휴식처</p>
+      <nav class="navbar">
+        <a href="#about">호텔 소개</a>
+        <a href="room3.html">객실 검색</a>
+        <a href="reservation.html">예약</a>
+        <a href="ReservationInquiry.html">예약 조회</a>
+      </nav>
+    </header>
+
+    <h1>호텔 객실</h1>
+
+    <div class="container">
+      <div class="card">
+        <img src="1.jpg" alt="Room 1" />
+        <div class="card-content">
+          <p class="description">럭셔리 스위트룸</p>
+          <p class="price">₩200,000 / 박</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="2.jpg" alt="Room 2" />
+        <div class="card-content">
+          <p class="description">프리미엄 더블룸</p>
+          <p class="price">₩150,000 / 박</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="3.jpg" alt="Room 3" />
+        <div class="card-content">
+          <p class="description">오션뷰 디럭스</p>
+          <p class="price">₩180,000 / 박</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="4.jpg" alt="Room 4" />
+        <div class="card-content">
+          <p class="description">패밀리 스위트룸</p>
+          <p class="price">₩220,000 / 박</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

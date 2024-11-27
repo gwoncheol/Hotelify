@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>객실 검색 - 호텔 [호텔명]</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="header">
+      <h1>객실 검색</h1>
+      <nav>
+        <a href="index.html">메인</a>
+        <a href="rooms.html">객실 검색</a>
+        <a href="reservation.html">예약</a>
+        <a href="room_types.html">객실 타입</a>
+        <a href="reservation_check.html">예약 조회</a>
+      </nav>
+    </header>
+
+    <section class="search">
+      <h2>예약 가능한 객실 검색</h2>
+      <form>
+        <label for="checkin">체크인 날짜:</label>
+        <input type="date" id="checkin" name="checkin" />
+        <label for="checkout">체크아웃 날짜:</label>
+        <input type="date" id="checkout" name="checkout" />
+        <label for="guests">인원:</label>
+        <select id="guests" name="guests">
+          <option value="1">1명</option>
+          <option value="2">2명</option>
+          <option value="3">3명</option>
+          <option value="4">4명</option>
+        </select>
+        <button type="submit">검색</button>
+      </form>
+    </section>
+  </body>
+</html>

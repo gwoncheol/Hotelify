@@ -1,0 +1,87 @@
+호텔 예약 시스템의 데이터베이스 설계에서는 호텔의 객실 정보, 예약 정보, 고객 정보, 객실 타입 등의 정보를 저장하고 각 화면에서 필요한 기능을 지원할 수 있도록 테이블을 설계해야 합니다. 다음은 주요 테이블과 필드를 포함한 데이터베이스 설계 예시입니다:
+
+### 1. **고객 테이블 (Customer)**
+   - **목적**: 고객의 정보를 저장
+   - **필드**:
+     - `customer_id` (PK, INT, AUTO_INCREMENT): 고객 고유 식별자
+     - `name` (VARCHAR): 고객 이름
+     - `email` (VARCHAR): 고객 이메일
+     - `phone` (VARCHAR): 고객 전화번호
+
+### 2. **객실 타입 테이블 (RoomType)**
+   - **목적**: 객실의 종류(스위트, 싱글, 더블 등)와 가격 정보를 저장
+   - **필드**:
+     - `room_type_id` (PK, INT, AUTO_INCREMENT): 객실 타입 식별자
+     - `type_name` (VARCHAR): 객실 타입명 (예: 스위트, 싱글, 더블)
+     - `description` (TEXT): 객실 설명
+     - `price_per_night` (DECIMAL): 1박당 가격
+
+### 3. **객실 테이블 (Room)**
+   - **목적**: 호텔 내 모든 객실 정보 저장
+   - **필드**:
+     - `room_id` (PK, INT, AUTO_INCREMENT): 객실 고유 식별자
+     - `room_number` (VARCHAR): 객실 번호
+     - `room_type_id` (FK, INT): 객실 타입 식별자 (RoomType 테이블과 연결)
+     - `status` (ENUM): 객실 상태 (예: ‘Available’, ‘Occupied’, ‘Maintenance’)
+
+### 4. **예약 테이블 (Reservation)**
+   - **목적**: 고객의 예약 정보 저장
+   - **필드**:
+     - `reservation_id` (PK, INT, AUTO_INCREMENT): 예약 고유 식별자
+     - `customer_id` (FK, INT): 예약한 고객의 식별자 (Customer 테이블과 연결)
+     - `room_id` (FK, INT): 예약된 객실의 식별자 (Room 테이블과 연결)
+     - `check_in_date` (DATE): 체크인 날짜
+     - `check_out_date` (DATE): 체크아웃 날짜
+     - `status` (ENUM): 예약 상태 (예: ‘Confirmed’, ‘Canceled’, ‘Completed’)
+     - `total_price` (DECIMAL): 총 예약 금액
+
+### 5. **결제 테이블 (Payment)**
+   - **목적**: 예약에 대한 결제 정보 저장
+   - **필드**:
+     - `payment_id` (PK, INT, AUTO_INCREMENT): 결제 고유 식별자
+     - `reservation_id` (FK, INT): 예약 고유 식별자 (Reservation 테이블과 연결)
+     - `payment_date` (DATETIME): 결제 날짜 및 시간
+     - `amount` (DECIMAL): 결제 금액
+     - `payment_method` (VARCHAR): 결제 방식 (예: ‘Credit Card’, ‘Cash’)
+     - `status` (ENUM): 결제 상태 (예: ‘Paid’, ‘Refunded’)
+
+### 6. **예약 조회를 위한 뷰 (Reservation_View)**
+   - **목적**: 예약 정보를 쉽게 조회하기 위해 Reservation, Customer, Room, RoomType 테이블을 조인하여 예약에 필요한 정보를 표시하는 뷰
+   - **예시 쿼리**:
+     ```sql
+     CREATE VIEW Reservation_View AS
+     SELECT
+         r.reservation_id,
+         c.name AS customer_name,
+         rm.room_number,
+         rt.type_name AS room_type,
+         r.check_in_date,
+         r.check_out_date,
+         r.status AS reservation_status,
+         r.total_price
+     FROM
+         Reservation r
+     JOIN Customer c ON r.customer_id = c.customer_id
+     JOIN Room rm ON r.room_id = rm.room_id
+     JOIN RoomType rt ON rm.room_type_id = rt.room_type_id;
+     ```
+
+### 데이터베이스 설계 요약
+
+| 테이블 이름       | 설명                       |
+|----------------|--------------------------|
+| `Customer`     | 고객 정보 테이블             |
+| `RoomType`     | 객실 타입 정보 테이블         |
+| `Room`         | 객실 정보 테이블             |
+| `Reservation`  | 예약 정보 테이블             |
+| `Payment`      | 결제 정보 테이블             |
+| `Reservation_View` | 예약 정보 조회를 위한 뷰 |
+
+### 각 기능에 필요한 테이블 및 필드 매핑
+
+- **예약 가능한 방 검색**: `Room`, `RoomType` 테이블을 사용해 예약 가능한 객실 리스트를 조회합니다.
+- **예약 기능**: `Reservation` 테이블에 새로운 예약을 추가하고, `Payment` 테이블에 결제 정보를 추가합니다.
+- **객실 타입 확인**: `RoomType` 테이블에서 객실 타입과 가격 정보를 확인합니다.
+- **예약 조회**: `Reservation_View` 뷰를 사용해 예약된 객실과 고객 정보를 조회합니다.
+
+이렇게 설계하면 메인창, 예약 가능한 방 검색, 예약 창, 객실 타입 확인, 예약 조회 등에서 필요한 데이터를 효율적으로 사용할 수 있습니다.
