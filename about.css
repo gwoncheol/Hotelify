@@ -1,8 +1,19 @@
+/* 기본 스타일 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
 /* 헤더 스타일 */
 .header {
   background: linear-gradient(135deg, #4a90e2, #50c9c3);
   color: #fff;
-  padding: 15px 20px;
 }
 
 /* 헤더 내부 컨텐츠를 flexbox로 설정 */
@@ -10,6 +21,8 @@
   display: flex;
   justify-content: space-between; /* 왼쪽, 중앙, 오른쪽 배치 */
   align-items: center;
+  padding: 30px; /* 내부 여백을 늘려서 크기 증가 */
+  height: 100px; /* 고정 높이 설정 */
 }
 
 /* 왼쪽 상표명 */
@@ -52,4 +65,43 @@
 .header-right {
   display: flex;
   align-items: center;
+}
+
+#language-switch {
+  padding: 8px;
+  font-size: 1rem;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #333;
+  border: 1px solid #ddd;
+}
+/* 프로젝트 소개 섹션 */
+.about {
+  max-width: 800px;
+  margin: 50px auto;
+  background: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.about h2 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: #4a90e2;
+}
+
+.about p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #555;
+}
+
+/* 푸터 스타일 */
+.footer {
+  background: #333;
+  color: #fff;
+  text-align: center;
+  padding: 10px 15px;
+  font-size: 0.9rem;
 }

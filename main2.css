@@ -10,39 +10,78 @@ body {
   color: #333;
 }
 
-/* header 스타일 */
+/* 헤더 스타일 */
 .header {
-  background-color: #4a90e2;
+  background: linear-gradient(135deg, #4a90e2, #50c9c3);
   color: #fff;
-  padding: 0.5em 1em;
-  text-align: center;
-  position: relative; /* 네비게이션 링크를 오른쪽에 배치하기 위해 relative 포지션 */
 }
 
-/* 네비게이션 바 스타일 */
+/* 헤더 내부 컨텐츠를 flexbox로 설정 */
+.header-content {
+  display: flex;
+  justify-content: space-between; /* 왼쪽, 중앙, 오른쪽 배치 */
+  align-items: center;
+  padding: 30px; /* 내부 여백을 늘려서 크기 증가 */
+  height: 100px; /* 고정 높이 설정 */
+}
+
+/* 왼쪽 상표명 */
+.header-left {
+  flex: 1;
+}
+
+.header-left h1 {
+  margin: 0;
+  font-size: 1.5rem; /* h1 박스 사이즈 줄이기 */
+  font-weight: bold;
+}
+
+.header-left h1 a {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* 중앙 네비게이션 */
 .navbar {
-  display: flex; /* 수평 정렬을 위해 flex 사용 */
-  justify-content: flex-end; /* 네비게이션을 오른쪽에 정렬 */
-  gap: 20px; /* 각 링크 사이에 간격 추가 */
-  margin-top: 10px;
+  display: flex;
+  justify-content: center; /* 중앙 정렬 */
+  gap: 20px;
 }
 
 .navbar a {
   color: #fff;
   text-decoration: none;
-  font-size: 16px;
-  padding: 10px 15px;
-  transition: background-color 0.3s;
+  font-size: 1rem;
+  padding: 8px 15px;
+  border-radius: 5px;
+  transition: background 0.3s;
 }
 
 .navbar a:hover {
-  background-color: #3b7bbf; /* 호버 시 배경 색상 */
+  background: rgba(255, 255, 255, 0.3);
 }
 
+/* 오른쪽 언어 변경 */
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
+#language-switch {
+  padding: 8px;
+  font-size: 1rem;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #333;
+  border: 1px solid #ddd;
+}
+
+/* 메인 이미지 배너 */
 .banner {
   position: relative;
   text-align: center;
 }
+
 .banner {
   background-image: url("18.jpg"); /* 배경 이미지 경로 */
   background-size: cover; /* 화면에 맞게 이미지 크기 조정 */
@@ -84,17 +123,6 @@ section {
 .contact {
   text-align: center;
 }
-
-/* 객실 검색 폼 스타일 */
-/* .rooms {
-  padding: 40px;
-  background-color: #f8f8f8;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  max-width: 800px;
-  margin: 0 auto;
-  font-family: "Arial", sans-serif;
-} */
 
 /* 객실 검색 폼 스타일 */
 .rooms {

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>호텔 메인 페이지</title>
+    <style>
+      /* 기본 스타일 초기화 */
+      body {
+        margin: 0;
+        font-family: "Arial", sans-serif;
+        line-height: 1.6;
+        color: #333;
+        background-color: #f8f9fa;
+      }
+
+      /* 헤더 스타일 */
+      .header {
+        background: linear-gradient(135deg, #4a90e2, #50c9c3);
+        color: #fff;
+        padding: 20px;
+        position: relative;
+      }
+
+      .header-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between; /* 좌우 정렬 */
+        align-items: center; /* 세로 중앙 정렬 */
+        position: relative;
+        height: 200px; /* 헤더 높이 */
+      }
+
+      /* 헤더 타이틀 (호텔명 + 문구 중앙 배치) */
+      .header-title {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%); /* 중앙 정렬 */
+        text-align: center;
+      }
+
+      .header-title h1 {
+        margin: 0;
+        font-size: 2.5rem;
+        font-weight: bold;
+      }
+
+      .header-title h1 a {
+        color: #fff;
+        text-decoration: none;
+      }
+
+      .header-title p {
+        margin: 10px 0 0;
+        font-size: 1.2rem;
+      }
+
+      /* 네비게이션 스타일 (오른쪽 배치) */
+      .navbar {
+        display: flex;
+        justify-content: flex-end; /* 오른쪽 정렬 */
+        gap: 20px; /* 링크 간 간격 */
+        margin-left: auto; /* 오른쪽으로 밀기 */
+      }
+
+      .navbar a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 1rem;
+        padding: 8px 15px;
+        border-radius: 5px;
+        transition: background 0.3s;
+      }
+
+      .navbar a:hover {
+        background: rgba(255, 255, 255, 0.3);
+      }
+
+      /* 프로젝트 소개 섹션 */
+      .about {
+        max-width: 800px;
+        margin: 50px auto;
+        background: #fff;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .about h2 {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+        color: #4a90e2;
+      }
+
+      .about p {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: #555;
+      }
+
+      /* 푸터 스타일 */
+      .footer {
+        background: #333;
+        color: #fff;
+        text-align: center;
+        padding: 10px 15px;
+        font-size: 0.9rem;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 헤더 -->
+    <header class="header">
+      <div class="header-content">
+        <!-- 중앙에 위치할 타이틀 -->
+        <div class="header-title">
+          <h1><a href="main2.html">환영합니다! 호텔 [호텔명]</a></h1>
+          <p>여유롭고 편안한 휴식처</p>
+        </div>
+        <!-- 오른쪽에 위치할 네비게이션 -->
+        <nav class="navbar">
+          <a href="room3.html">객실 타입 검색</a>
+          <a href="reservation.html">예약</a>
+          <a href="ReservationInquiry.html">예약 조회</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- 프로젝트 소개 섹션 -->
+    <main>
+      <section id="about" class="about">
+        <h2>프로젝트를 하게 된 이유</h2>
+        <p>
+          이 프로젝트는 호텔 예약 시스템을 개발하며 웹 개발 기술을 익히고,
+          사용자에게 최적화된 경험을 제공하기 위해 시작되었습니다. 현대적이고
+          직관적인 디자인을 목표로 하여 방문자가 쉽고 빠르게 예약과 관련된
+          서비스를 이용할 수 있도록 설계했습니다.
+        </p>
+      </section>
+    </main>
+
+    <!-- 푸터 -->
+    <footer class="footer">
+      <p>&copy; 2024. 이권철.</p>
+    </footer>
+  </body>
+</html>
