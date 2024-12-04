@@ -15,7 +15,7 @@
 
 먼저 이 프로젝트를 클론합니다:
 ```bash
-git clone https://github.com/yourusername/Hotelify.git
+git clone https://github.com/gwoncheol/Hotelify.git
 ```
 
 ### 2. 필요한 라이브러리 추가
