@@ -72,4 +72,4 @@ Tomcat 서버를 실행하고, `http://localhost:8080/Hotelify` 주소로 접속
 - GitHub: [@yourusername](https://github.com/yourusername)
 ```
 
-위의 `README.md` 파일은 JSP와 Servlet을 포함한 내용을 명시하고 있습니다. JSP와 관련된 설정 및 Tomcat 서버 설정, 데이터베이스 연결 방법 등을 추가했으며, 필요에 따라 이메일과 GitHub 링크를 수정하여 사용하면 됩니다.
+
