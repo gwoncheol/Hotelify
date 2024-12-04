@@ -9,12 +9,27 @@
   <body>
     <!-- 헤더 -->
     <header class="header">
-      <h1><a href="main2.html">환영합니다! 호텔 [호텔명]</a></h1>
-      <nav class="navbar">
-        <a href="about.html">호텔 소개</a>
-        <a href="room3.html">객실 타입 검색</a>
-        <a href="reservation.html">예약</a>
-      </nav>
+      <div class="header-content">
+        <h1>
+          <a href="main2.html">
+            <img src="logo.png" alt="호텔 이미지" />
+            Gaon Crest
+          </a>
+        </h1>
+        <nav class="navbar">
+          <a href="about.html">호텔 소개</a>
+          <a href="room3.html">객실 타입 검색</a>
+          <a href="reservation.html">예약</a>
+          <a href="ReservationInquiry.html">예약 조회</a>
+        </nav>
+        <!-- 언어 변경 오른쪽 배치 -->
+        <div class="header-right">
+          <select id="language-switch" name="language">
+            <option value="ko">한국어</option>
+            <option value="en">English</option>
+          </select>
+        </div>
+      </div>
     </header>
 
     <main>

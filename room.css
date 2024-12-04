@@ -1,19 +1,19 @@
-body {
-  /* font-family: Arial, sans-serif;
-  background-color: #f8f9fa;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+/* 기본 스타일 */
+* {
   margin: 0;
-  padding: 0; */
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  color: #333;
 }
 
 /* 헤더 스타일 */
 .header {
   background: linear-gradient(135deg, #4a90e2, #50c9c3);
   color: #fff;
-  padding: 15px 20px;
 }
 
 /* 헤더 내부 컨텐츠를 flexbox로 설정 */
@@ -21,6 +21,8 @@ body {
   display: flex;
   justify-content: space-between; /* 왼쪽, 중앙, 오른쪽 배치 */
   align-items: center;
+  padding: 30px; /* 내부 여백을 늘려서 크기 증가 */
+  height: 100px; /* 고정 높이 설정 */
 }
 
 /* 왼쪽 상표명 */
@@ -34,9 +36,17 @@ body {
   font-weight: bold;
 }
 
-.header-left h1 a {
-  color: #fff;
-  text-decoration: none;
+.header-content h1 a {
+  color: #fff; /* 링크 색상을 흰색으로 설정 */
+  text-decoration: none; /* 밑줄 제거 */
+}
+
+/* 헤더의 모든 이미지에 스타일 적용 */
+.header-content h1 img {
+  width: 100px; /* 원하는 크기로 설정 */
+  height: auto; /* 비율 유지 */
+  margin-right: 10px; /* 텍스트와 간격 */
+  vertical-align: middle; /* 텍스트와 이미지 정렬 */
 }
 
 /* 중앙 네비게이션 */
@@ -63,6 +73,15 @@ body {
 .header-right {
   display: flex;
   align-items: center;
+}
+
+#language-switch {
+  padding: 8px;
+  font-size: 1rem;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #333;
+  border: 1px solid #ddd;
 }
 
 .container {

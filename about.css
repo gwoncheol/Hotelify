@@ -16,42 +16,46 @@ body {
   color: #fff;
 }
 
-/* 헤더 내부 컨텐츠를 flexbox로 설정 */
 .header-content {
   display: flex;
-  justify-content: space-between; /* 왼쪽, 중앙, 오른쪽 배치 */
+  justify-content: space-between;
   align-items: center;
-  padding: 30px; /* 내부 여백을 늘려서 크기 증가 */
-  height: 100px; /* 고정 높이 설정 */
+  padding: 30px;
+  height: 100px;
 }
 
-/* 왼쪽 상표명 */
 .header-left {
   flex: 1;
 }
 
 .header-left h1 {
   margin: 0;
-  font-size: 1.5rem; /* h1 박스 사이즈 줄이기 */
-  font-weight: bold;
+  font-size: 1.2rem; /* 텍스트 크기 조정 */
 }
 
-.header-left h1 a {
-  color: #fff;
-  text-decoration: none;
+.header-content h1 a {
+  color: #fff; /* 링크 색상을 흰색으로 설정 */
+  text-decoration: none; /* 밑줄 제거 */
 }
 
-/* 중앙 네비게이션 */
+.header-content h1 img {
+  width: 100px;
+  height: auto;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+/* 네비게이션 */
 .navbar {
   display: flex;
-  justify-content: center; /* 중앙 정렬 */
+  justify-content: center;
   gap: 20px;
 }
 
 .navbar a {
   color: #fff;
   text-decoration: none;
-  font-size: 1rem;
+  font-size: 1.1rem; /* 네비게이션 링크 크기 조정 */
   padding: 8px 15px;
   border-radius: 5px;
   transition: background 0.3s;

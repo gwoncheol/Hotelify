@@ -16,42 +16,46 @@ body {
   color: #fff;
 }
 
-/* 헤더 내부 컨텐츠를 flexbox로 설정 */
 .header-content {
   display: flex;
-  justify-content: space-between; /* 왼쪽, 중앙, 오른쪽 배치 */
+  justify-content: space-between;
   align-items: center;
-  padding: 30px; /* 내부 여백을 늘려서 크기 증가 */
-  height: 100px; /* 고정 높이 설정 */
+  padding: 30px;
+  height: 100px;
 }
 
-/* 왼쪽 상표명 */
 .header-left {
   flex: 1;
 }
 
 .header-left h1 {
   margin: 0;
-  font-size: 1.5rem; /* h1 박스 사이즈 줄이기 */
-  font-weight: bold;
+  font-size: 1.2rem; /* 텍스트 크기 조정 */
 }
 
-.header-left h1 a {
-  color: #fff;
-  text-decoration: none;
+.header-content h1 a {
+  color: #fff; /* 링크 색상을 흰색으로 설정 */
+  text-decoration: none; /* 밑줄 제거 */
 }
 
-/* 중앙 네비게이션 */
+.header-content h1 img {
+  width: 100px;
+  height: auto;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+/* 네비게이션 */
 .navbar {
   display: flex;
-  justify-content: center; /* 중앙 정렬 */
+  justify-content: center;
   gap: 20px;
 }
 
 .navbar a {
   color: #fff;
   text-decoration: none;
-  font-size: 1rem;
+  font-size: 1.1rem; /* 네비게이션 링크 크기 조정 */
   padding: 8px 15px;
   border-radius: 5px;
   transition: background 0.3s;
@@ -76,17 +80,12 @@ body {
   border: 1px solid #ddd;
 }
 
-/* 메인 이미지 배너 */
+/* 메인 배너 */
 .banner {
-  position: relative;
-  text-align: center;
-}
-
-.banner {
-  background-image: url("18.jpg"); /* 배경 이미지 경로 */
-  background-size: cover; /* 화면에 맞게 이미지 크기 조정 */
-  background-position: center; /* 이미지가 중앙에 오도록 배치 */
-  height: 70vh; /* 화면 전체 높이에 맞게 배경 이미지 크기 조정 */
+  background-image: url("Main.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 75vh;
 }
 
 .banner h2 {
@@ -101,74 +100,46 @@ body {
   border-radius: 5px;
 }
 
-/* 버튼 스타일 */
-.btn {
-  display: inline-block;
-  padding: 10px 20px;
-  background-color: #ff6b6b;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 5px;
-  margin-top: 10px;
-}
-
-/* 섹션 기본 스타일 */
-section {
-  padding: 2em;
-}
-
-.about,
-.rooms,
-.reviews,
-.contact {
-  text-align: center;
-}
-
-/* 객실 검색 폼 스타일 */
+/* 객실 검색 폼 */
 .rooms {
   padding: 20px;
   background-color: #f8f8f8;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 100%; /* 화면 크기에 맞게 가로 사이즈 조정 */
+  width: 100%;
   margin: 0 auto;
   font-family: "Arial", sans-serif;
 }
 
-/* 제목 스타일 */
 .rooms h2 {
   font-size: 28px;
   margin-bottom: 20px;
   color: #333;
 }
 
-/* 폼 그룹 스타일 */
 form {
   display: flex;
-  justify-content: center; /* 폼 요소들을 중앙 정렬 */
-  gap: 5em; /* 요소들 간의 간격 */
+  justify-content: center;
+  gap: 5em;
   align-items: center;
 }
 
-/* 라벨 스타일 */
 label {
   font-size: 16px;
   color: #333;
   margin-right: 10px;
 }
 
-/* 인풋 박스 스타일 */
 input[type="date"],
 select {
   padding: 12px;
   font-size: 16px;
   border: 1px solid #ddd;
   border-radius: 5px;
-  width: 150px; /* 각 항목의 폭을 고정하여 정렬 */
+  width: 150px;
   box-sizing: border-box;
 }
 
-/* 버튼 스타일 */
 button {
   padding: 14px;
   font-size: 16px;
@@ -178,42 +149,23 @@ button {
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  width: 120px; /* 버튼 크기 고정 */
+  width: 120px;
 }
 
 button:hover {
   background-color: #4cae4c;
 }
 
-/* 반응형 디자인 (모바일 대응) */
+/* 반응형 디자인 */
 @media (max-width: 600px) {
-  .rooms {
-    padding: 20px;
-  }
-
-  .rooms h2 {
-    font-size: 24px;
-  }
-
-  form {
-    flex-direction: column; /* 모바일에서는 세로로 정렬 */
-    align-items: flex-start;
-  }
-
-  input[type="date"],
-  select,
-  button {
-    width: 100%; /* 모바일에서는 입력창과 버튼이 화면을 꽉 채우게 */
+  .rooms input[type="date"],
+  .rooms select,
+  .rooms button {
+    width: 100%;
     margin-bottom: 10px;
   }
 }
 
-/* 고객 후기 스타일 */
-.reviews .review {
-  margin: 1em 0;
-}
-
-/* 푸터 스타일 */
 .footer {
   background-color: #4a90e2;
   color: #fff;

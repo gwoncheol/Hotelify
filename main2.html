@@ -9,7 +9,12 @@
   <body>
     <header class="header">
       <div class="header-content">
-        <h1><a href="main2.html">환영합니다! 호텔 [호텔명]</a></h1>
+        <h1>
+          <a href="main2.html">
+            <img src="logo.png" alt="호텔 이미지" />
+            Gaon Crest
+          </a>
+        </h1>
         <nav class="navbar">
           <a href="about.html">호텔 소개</a>
           <a href="room3.html">객실 타입 검색</a>
@@ -30,7 +35,8 @@
     <section class="banner"></section>
 
     <section id="rooms" class="rooms">
-      <form>
+      <!-- form action을 reservation.html로 설정하고 GET method로 전송 -->
+      <form action="reservation.html" method="get">
         <div class="form-group">
           <label for="checkin">체크인 날짜:</label>
           <input type="date" id="checkin" name="checkin" />
