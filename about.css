@@ -101,11 +101,9 @@ body {
   color: #555;
 }
 
-/* 푸터 스타일 */
 .footer {
-  background: #333;
+  background-color: #4a90e2;
   color: #fff;
+  padding: 1em;
   text-align: center;
-  padding: 10px 15px;
-  font-size: 0.9rem;
 }

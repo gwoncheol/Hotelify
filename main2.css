@@ -82,7 +82,7 @@ body {
 
 /* 메인 배너 */
 .banner {
-  background-image: url("Main.jpg");
+  background-image: url("image/Main.jpg");
   background-size: cover;
   background-position: center;
   height: 75vh;
