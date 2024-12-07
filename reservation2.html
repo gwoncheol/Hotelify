@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>예약 - 호텔 [호텔명]</title>
-    <link rel="stylesheet" href="reservation.css" />
+    <link rel="stylesheet" href="reservation2.css" />
   </head>
   <body>
     <header class="header">
@@ -33,13 +33,12 @@
 
     <section class="reservation">
       <h2>객실 예약하기</h2>
-      <!-- JavaScript를 통해 폼 제출 후 이동 -->
-      <form id="reservation-form">
+      <form action="reservation.html" method="get">
         <label for="checkin">체크인 날짜:</label>
-        <input type="date" id="checkin" name="checkin" required />
+        <input type="date" id="checkin" name="checkin" />
 
         <label for="checkout">체크아웃 날짜:</label>
-        <input type="date" id="checkout" name="checkout" required />
+        <input type="date" id="checkout" name="checkout" />
 
         <label for="guests">인원:</label>
         <select id="guests" name="guests">
@@ -48,31 +47,49 @@
           <option value="3">3명</option>
           <option value="4">4명</option>
         </select>
-        <button type="button" onclick="submitForm()">검색</button>
+        <button type="submit">검색</button>
       </form>
     </section>
 
-    <script>
-      function submitForm() {
-        const checkin = document.getElementById("checkin").value;
-        const checkout = document.getElementById("checkout").value;
-        const guests = document.getElementById("guests").value;
+    <div class="container">
+      <div class="card">
+        <img src="image/Room1.jpg" alt="Room 1" />
+        <div class="card-content">
+          <p class="description">디럭스</p>
+          <p class="price">₩300,000 / 박</p>
+          <button class="reserve-btn">예약하기</button>
+        </div>
+      </div>
 
-        if (!checkin || !checkout) {
-          alert("체크인 날짜와 체크아웃 날짜를 모두 입력해주세요.");
-          return;
-        }
+      <div class="card">
+        <img src="image/Room2.jpg" alt="Room 2" />
+        <div class="card-content">
+          <p class="description">프리미엄 디럭스</p>
+          <p class="price">₩450,000 / 박</p>
+          <button class="reserve-btn">예약하기</button>
+        </div>
+      </div>
 
-        // URL 파라미터를 통해 값 전달
-        const url = `reservation2.html?checkin=${encodeURIComponent(
-          checkin
-        )}&checkout=${encodeURIComponent(checkout)}&guests=${encodeURIComponent(
-          guests
-        )}`;
+      <div class="card">
+        <img src="image/Room3.jpg" alt="Room 3" />
+        <div class="card-content">
+          <p class="description">스위트룸</p>
+          <p class="price">₩1,000,000 / 박</p>
+          <button class="reserve-btn">예약하기</button>
+        </div>
+      </div>
 
-        window.location.href = url; // 페이지 이동
-      }
-    </script>
+      <div class="card">
+        <img src="image/Room4.jpg" alt="Room 4" />
+        <div class="card-content">
+          <p class="description">럭셔리 스위트룸</p>
+          <p class="price">₩2,000,000 / 박</p>
+          <button class="reserve-btn">예약하기</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 푸터 -->
     <footer class="footer">
       <p>&copy; 2024. 이권철.</p>
     </footer>
