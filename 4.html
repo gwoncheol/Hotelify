@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>예약 - 호텔 Gaon Crest</title>
+    <link rel="stylesheet" href="reservation2.css" />
+  </head>
+  <body>
+    <!-- 헤더 영역 -->
+    <header class="header">
+      <div class="header-content">
+        <h1>
+          <a href="main2.html">
+            <img src="image/logo.png" alt="호텔 이미지" />
+            Gaon Crest
+          </a>
+        </h1>
+        <nav class="navbar">
+          <a href="about.html">호텔 소개</a>
+          <a href="room3.html">객실 타입 검색</a>
+          <a href="reservation.html">예약</a>
+          <a href="ReservationInquiry.html">예약 조회</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- 예약 섹션 -->
+    <section class="reservation">
+      <h2>객실 예약하기</h2>
+      <!-- 폼 설정 -->
+      <form id="reservation-form" action="processReservation.jsp" method="post">
+        <!-- 체크인 날짜 -->
+        <label for="checkin">체크인 날짜:</label>
+        <input type="date" id="checkin" name="checkin" required />
+
+        <!-- 체크아웃 날짜 -->
+        <label for="checkout">체크아웃 날짜:</label>
+        <input type="date" id="checkout" name="checkout" required />
+
+        <!-- 인원 선택 -->
+        <label for="guests">인원:</label>
+        <select id="guests" name="guests" required>
+          <option value="1">1명</option>
+          <option value="2">2명</option>
+          <option value="3">3명</option>
+          <option value="4">4명</option>
+        </select>
+
+        <!-- 숨겨진 필드 (객실 타입과 요금) -->
+        <input type="hidden" id="room-type" name="room-type" />
+        <input type="hidden" id="room-price" name="room-price" />
+        <button class="reserve-btn">예약하기</button>
+      </form>
+    </section>
+
+    <div class="container">
+      <!-- 객실 선택 버튼 -->
+      <div class="card">
+        <img src="image/Room1.jpg" alt="Room 1" />
+        <div class="card-content">
+          <p class="description">디럭스</p>
+          <p class="price">₩300,000</p>
+          <button class="reserve-btn">예약하기</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScript Logic -->
+    <script>
+      document.querySelectorAll(".reserve-btn").forEach((button) => {
+        button.addEventListener("click", function (event) {
+          const card = this.closest(".card");
+          const roomType = card
+            .querySelector(".description")
+            .textContent.trim();
+          const roomPrice = parseInt(
+            card.querySelector(".price").textContent.replace(/[^0-9]/g, ""),
+            10
+          );
+
+          // 숨겨진 필드 값 설정
+          document.getElementById("room-type").value = roomType;
+
+          const checkinDate = document.getElementById("checkin").value;
+          const checkoutDate = document.getElementById("checkout").value;
+
+          if (!checkinDate || !checkoutDate) {
+            alert("체크인 및 체크아웃 날짜를 선택해주세요!");
+            return;
+          }
+
+          const checkin = new Date(checkinDate);
+          const checkout = new Date(checkoutDate);
+
+          if (checkout <= checkin) {
+            alert("체크아웃 날짜는 체크인 날짜 이후여야 합니다.");
+            return;
+          }
+
+          const days = (checkout - checkin) / (1000 * 60 * 60 * 24);
+          const totalPrice = roomPrice * days;
+
+          document.getElementById("room-price").value = totalPrice;
+
+          const confirmReservation = confirm(
+            `객실 타입: ${roomType}\n숙박 기간: ${days}박\n총 요금: ₩${totalPrice.toLocaleString()}\n예약을 진행하시겠습니까?`
+          );
+
+          if (confirmReservation) {
+            document.getElementById("reservation-form").submit();
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>예약 확인</title>
+    <style>
+      /* 스타일링 */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+
+      h1 {
+        color: #333;
+      }
+
+      .reservation-details,
+      .customer-info {
+        border: 1px solid #ccc;
+        padding: 20px;
+        border-radius: 10px;
+        max-width: 400px;
+        background: #f9f9f9;
+        margin-bottom: 20px;
+      }
+
+      .reservation-details p,
+      .customer-info p {
+        margin: 10px 0;
+      }
+
+      /* 폼 스타일 */
+      label {
+        margin: 10px 0;
+        display: block;
+      }
+
+      input[type="text"] {
+        width: 100%;
+        padding: 8px;
+        box-sizing: border-box;
+        margin-bottom: 10px;
+      }
+
+      button {
+        padding: 10px 15px;
+        cursor: pointer;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 예약 확인 영역 -->
+    <h1>예약 확인</h1>
+    <div class="reservation-details" id="details">
+      <!-- 예약 정보를 표시할 영역 -->
+    </div>
+
+    <!-- 고객 정보 입력 영역 -->
+    <div class="customer-info">
+      <h2>고객 정보 입력</h2>
+      <form id="customer-form">
+        <label for="lastName">성:</label>
+        <input type="text" id="lastName" name="lastName" required />
+
+        <label for="firstName">이름:</label>
+        <input type="text" id="firstName" name="firstName" required />
+
+        <label for="phoneNumber">전화 번호:</label>
+        <input type="text" id="phoneNumber" name="phoneNumber" required />
+
+        <button type="button" onclick="submitCustomerInfo()">예약하기</button>
+      </form>
+    </div>
+
+    <!-- 결과 표시 영역 -->
+    <div class="customer-info" id="output">
+      <!-- 입력 정보를 표시 -->
+    </div>
+
+    <script>
+      // URL의 쿼리 파라미터를 읽어오는 함수
+      function getQueryParams() {
+        const params = {};
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+
+        urlParams.forEach((value, key) => {
+          params[key] = value;
+        });
+
+        return params;
+      }
+
+      // 예약 정보 표시
+      function displayReservationDetails() {
+        const detailsDiv = document.getElementById("details");
+        const params = getQueryParams();
+
+        const detailsHTML = Object.entries(params)
+          .map(
+            ([key, value]) =>
+              `<p><strong>${decodeURIComponent(
+                key
+              )}:</strong> ${decodeURIComponent(value)}</p>`
+          )
+          .join("");
+
+        detailsDiv.innerHTML = detailsHTML;
+      }
+
+      displayReservationDetails();
+
+      // 고객 정보 제출 함수
+      function submitCustomerInfo() {
+        const lastName = document.getElementById("lastName").value.trim();
+        const firstName = document.getElementById("firstName").value.trim();
+        const phoneNumber = document.getElementById("phoneNumber").value.trim();
+
+        if (!lastName || !firstName || !phoneNumber) {
+          alert("모든 필드를 입력해주세요!");
+          return;
+        }
+
+        const customerOutputDiv = document.getElementById("output");
+
+        // 입력한 정보를 화면에 표시
+        customerOutputDiv.innerHTML = `
+          <h3>입력한 고객 정보</h3>
+          <p><strong>성:</strong> ${lastName}</p>
+          <p><strong>이름:</strong> ${firstName}</p>
+          <p><strong>전화 번호:</strong> ${phoneNumber}</p>
+        `;
+      }
+    </script>
+  </body>
+</html>
